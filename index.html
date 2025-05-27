@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<head>
+    <title> HTML5 </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Welcome Banner */
+        #welcomeBanner {
+            background-color: #007BFF;
+            background-image: url(images/city-council-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: yellow;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h3,
+        p {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Main Sections */
+        main {
+            padding: 20px;
+        }
+
+        /* Event Image Table */
+        table {
+            width: 100%;
+            border-spacing: 20px;
+        }
+
+        .eventImage {
+            width: 150px;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            transition: width 0.3s ease;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        output {
+            display: block;
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+
+        video {
+            display: block;
+            margin-top: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main -->
+    <main>
+        <!-- Navigation -->
+        <h1 id="mainHeader">Local Community Event Portal</h1>
+
+        <nav><a href="#home">Home</a> |
+            <a href="#events">Events</a> |
+            <a href="#contact">Contact</a> |
+            <a href="help.html" target="_blank">Help</a> <!-- External link -->
+        </nav>
+
+        <!-- Sections -->
+        <section id="home">
+            <div id="welcomeBanner">
+                Welcome Back!User.
+                <p>
+                    Don't miss out! <span style="color: rgb(193, 210, 68); font-weight: bold;">Special Offer: 50%
+                        Off</span>
+                </p>
+                <h2 class="highlight"> Today's Offer : Arijit Concert! </h2>
+                <h3 style="color: red;"> 27th April, 2025 </h3>
+            </div>
+        </section>
+
+        <section id="events">
+            <div id="pastEvents">
+                <table>
+                    <caption style="font-weight: bold;"> Past Events Gallery</caption>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/event1.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="bangalore" title="Bangalore">
+                                <figcaption> Arijit Singh Bangalore Concert</figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <figure>
+                                <img src="images/event4.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="iit bombay" title="IIT Bombay">
+                                <figcaption> IIT Bombay 2025 </figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images/event2.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="chandigarh" title="Chandigarh">
+                                <figcaption> Arijit Singh Chandigarh Concert</figcaption>
+                            </figure>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/event3.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="tech summit" title="Tech  Summit">
+                                <figcaption> Tech and Innovation Summit</figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <figure>
+                                <img src="images/event5.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="Cognizance" title="Cognizance">
+                                <figcaption> Cognizance 2025 </figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <figure>
+                                <img src="images/event6.jpg" class="eventImage" ondblclick="enlargeImage(this)"
+                                    alt="Techkriti 2025" title="Techkriti">
+                                <figcaption> Techkriti 2025</figcaption>
+                            </figure>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <!-- Registration Form -->
+            <h2 id="events">Register for an Event</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <form onsubmit="confirmSubmission(); return false;">
+                            <label>Name: <input type="text" id="name" placeholder="Your Name" required
+                                    autofocus></label><br><br>
+                            <label>Email: <input type="email" placeholder="Your Email" required></label><br><br>
+                            <label>Phone: <input type="text" onblur="validatePhone(this)" placeholder="10-digit number"
+                                    required></label><br><br>
+                            <label>Date: <input type="date" required></label><br><br>
+                            <label>Event Type:
+                                <select id="eventType" onchange="updateFee(this); savePreference(this)">
+                                    <option value="">Select</option>
+                                    <option value="100">Workshop - $100</option>
+                                    <option value="50">Webinar - $50</option>
+                                    <option value="200">Conference - $200</option>
+                                </select>
+                            </label>
+                            <div id="feeDisplay"></div><br>
+                            <label>Message:<br><textarea rows="4" cols="30"
+                                    onkeyup="countChars(this)"></textarea></label><br>
+                            <div id="charCount"></div><br>
+                            <button type="submit">Submit</button>
+                            <button type="button" onclick="clearPreferences()">Clear Preferences</button><br><br>
+                            <output id="outputMsg"></output>
+                        </form>
+                    </td>
+                    <!-- Video -->
+                    <td style="text-align: start;">
+                        <h2>Event Invite</h2>
+                        <video src="promo.mp4" controls oncanplay="videoReady()"></video>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Geolocation -->
+            <center>
+                <button onclick="findNearby()">Find Nearby Events</button>
+                <p id="geo"></p>
+            </center>
+        </section>
+
+    </main>
+    <footer>
+        &copy; 2025 Community Events Portal. All rights reserved.
+    </footer>
+
+    <script>
+        // Phone number validation on blur
+        function validatePhone(input) {
+            const phone = input.value;
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Enter a valid 10-digit phone number.");
+
+
+            }
+        }
+
+        // Update fee on change
+        function updateFee(select) {
+            document.getElementById("feeDisplay").textContent = "Fee: $" + select.value;
+        }
+
+        // Confirm submission
+        function confirmSubmission() {
+            document.getElementById("outputMsg").value = "Registration submitted successfully!";
+        }
+
+        // Enlarge image on double-click
+        function enlargeImage(img) {
+            if (img.style.width === "150px") {
+                img.style.width = "300px";
+            } else {
+                img.style.width = "150px";
+            }
+        }
+
+        // Count characters in feedback
+        function countChars(textarea) {
+            document.getElementById("charCount").textContent = textarea.value.length + " characters";
+        }
+
+        // Video ready event
+        function videoReady() {
+            alert("Video ready to play");
+        }
+
+        // Warn if user leaves page with unfinished form
+        window.onbeforeunload = function () {
+            if (document.getElementById("name").value !== "") {
+                return "You have unsaved changes.";
+            }
+        };
+
+        // Save event preference
+        function savePreference(select) {
+            localStorage.setItem("eventType", select.value);
+        }
+
+        // Load saved preference
+        window.onload = function () {
+            const saved = localStorage.getItem("eventType");
+            if (saved) document.getElementById("eventType").value = saved;
+        };
+
+        // Clear storage
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+            alert("Preferences cleared");
+        }
+
+        // Get user location
+        function findNearby() {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const coords = pos.coords;
+                    document.getElementById("geo").textContent = `Lat: ${coords.latitude}, Lng: ${coords.longitude}`;
+                },
+                (err) => {
+                    alert("Error getting location: " + err.message);
+                },
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
+        }
+    </script>
+</body>
+
+</html>
